@@ -1,0 +1,22 @@
+[
+  {
+    "id": "76312933-54bb-4329-9a12-aed9b30093cc",
+    "todo": "somedoto",
+    "done": false
+  },
+  {
+    "id": "781401a1-edc7-4de4-8374-ca0ed53605ce",
+    "todo": "newOne",
+    "done": true
+  },
+  {
+    "id": "4f86f12f-57ff-44cc-bc2e-8cd8bac33f41",
+    "todo": "newTwo",
+    "done": false
+  },
+  {
+    "id": "97520c3f-d81e-49ef-bd71-096928d4d707",
+    "todo": "Clean the table",
+    "done": false
+  }
+]
