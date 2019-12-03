@@ -30,9 +30,6 @@ const schema = Joi.object().keys({
     done: Joi.boolean().required()
 })
 
-
-app.get('/todos', getTodos);
-
 function getTodos(req, res) {
     res.status(200).json({
         status: 'success',
@@ -42,8 +39,6 @@ function getTodos(req, res) {
         }
     });
 }
-
-app.post('/todos/', addTodo);
 
 function addTodo(req, res) {
     const newId = uuid.v4();
@@ -64,29 +59,6 @@ function addTodo(req, res) {
         });
     })
 }
-
-app.delete('/todos/:id', removeTodo);
-
-function removeTodo(req, res) {
-    const todoId = req.params.id;
-
-    const filteredData = todosObj.filter(obj => obj.id != todoId);
-
-    const newData = JSON.stringify(filteredData, null, 2);
-
-    fs.writeFile('./data/todos.json', newData, 'utf8', err => {
-        if (err) throw err;
-        res.status(200).json({
-            status: 'success',
-            results: filteredData.length,
-            data: {
-                filteredData
-            }
-        });
-    })
-}
-
-app.patch('/todos/:id', toggleDoneStat);
 
 function toggleDoneStat(req, res) {
     const todoId = req.params.id;
@@ -111,6 +83,30 @@ function toggleDoneStat(req, res) {
     })
 }
 
+function removeTodo(req, res) {
+    const todoId = req.params.id;
+
+    const filteredData = todosObj.filter(obj => obj.id != todoId);
+
+    const newData = JSON.stringify(filteredData, null, 2);
+
+    fs.writeFile('./data/todos.json', newData, 'utf8', err => {
+        if (err) throw err;
+        res.status(200).json({
+            status: 'success',
+            results: filteredData.length,
+            data: {
+                filteredData
+            }
+        });
+    })
+}
+
+
+app.get('/todos', getTodos);
+app.post('/todos/', addTodo);
+app.patch('/todos/:id', toggleDoneStat);
+app.delete('/todos/:id', removeTodo);
 
 app.listen(PORT, (req, res) => {
     console.log('Server started');
