@@ -103,10 +103,20 @@ function removeTodo(req, res) {
 }
 
 
-app.get('/todos', getTodos);
-app.post('/todos/', addTodo);
-app.patch('/todos/:id', toggleDoneStat);
-app.delete('/todos/:id', removeTodo);
+// app.get('/todos', getTodos);
+// app.post('/todos', addTodo);
+// app.patch('/todos/:id', toggleDoneStat);
+// app.delete('/todos/:id', removeTodo);
+
+app
+    .route('/todos')
+    .get(getTodos)
+    .post(addTodo);
+
+app
+    .route('/todos/:id')
+    .patch(toggleDoneStat)
+    .delete(removeTodo);
 
 app.listen(PORT, (req, res) => {
     console.log('Server started');
