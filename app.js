@@ -8,14 +8,14 @@ const Joi = require('@hapi/joi');
 
 
 const PORT = 3000;
-const todosObj = JSON.parse(fs.readFileSync('./data/todos.json'))
 
 
 app.use(helmet());
 app.use(bodyParser.json());
 
+const todosObj = JSON.parse(fs.readFileSync('./data/todos.json'))
 
-app.use('', (req, res, next) => {
+app.use('/todos', (req, res, next) => {
     if (req.headers.authorization === 'qwerty') {
         console.log('Auth Successful');
         next();
