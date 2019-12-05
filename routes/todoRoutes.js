@@ -25,7 +25,7 @@ function getTodos(req, res) {
 function addTodo(req, res, next) {
     const { error, value } = schema.validate(req.body);
     if (error) {
-        return res.json({
+        return res.status(400).json({
             status: 'fail',
             data: {
                 error
