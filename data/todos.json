@@ -1,10 +1,5 @@
 [
   {
-    "id": "97520c3f-d81e-49ef-bd71-096928d4d707",
-    "todo": "Clean the table",
-    "done": false
-  },
-  {
     "id": "fd072aea-4898-45da-b13c-908d3e88d6e7",
     "todo": "Give me more TODOS",
     "done": false
@@ -12,11 +7,6 @@
   {
     "id": "fcbec0eb-dccc-4531-947e-1bd7fd9008b6",
     "todo": "Give me some more",
-    "done": false
-  },
-  {
-    "id": "59f1afeb-a054-4496-bed5-ef1dd0cbf913",
-    "go": "Give me some more",
     "done": false
   },
   {
