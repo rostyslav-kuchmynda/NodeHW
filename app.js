@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+
 const todoRouter = require('./routes/todoRoutes');
 
 const helmet = require('helmet');
@@ -25,9 +26,4 @@ app.use('/todos', (req, res, next) => {
 
 app.use('/todos', todoRouter);
 
-// Server listening
-const PORT = 3000;
-
-app.listen(PORT, (req, res) => {
-    console.log('Server started');
-})
+module.exports = app;
